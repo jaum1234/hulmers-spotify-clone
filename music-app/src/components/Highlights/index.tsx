@@ -9,6 +9,7 @@ const Highlights = ({ title, children }: { title: string, children: React.ReactN
             fontSize="25px" 
             fontWeight="bold"
             marginBottom={10}
+            className={ styles.title }
         >
             { title }
         </Text>
