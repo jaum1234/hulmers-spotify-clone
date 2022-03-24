@@ -12,6 +12,9 @@
     "pino": "^7.9.1",
     "spotify-web-api-node": "^5.0.2"
   },
+  "engines": {
+    "node": "17"
+  },
   "scripts": {
     "start": "nodemon build/index.js",
     "build": "tsc --project ./",
