@@ -8,7 +8,7 @@ export const middleware = async (request: NextRequest) => {
     }
     
     if (!request.cookies.token) {
-        return NextResponse.redirect('http://localhost:3000/login');
+        return NextResponse.redirect('https://hulmers-spotify-clone.vercel.app/login');
     }
 
     return response;
