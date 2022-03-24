@@ -1,12 +1,13 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useCookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
 import Button from "../../Button";
 import Link from "../../Link";
 import { navbar } from "../../../fixtures/navbar";
 import { NavItem } from "../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
 import { MouseEventHandler } from "react";
+import styles from './Nav.module.css';
 
 const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
 
@@ -14,8 +15,9 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
     const router = useRouter();
 
     return(
-        <Box>
-
+        <Box
+            className={ styles.nav }
+        >
             <Flex
                 alignItems='center'
                 
@@ -33,18 +35,21 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                         </Flex>
                     </Link>
                 )) }
-                <Flex 
-                    alignItems='center'
-                    cursor='pointer' 
-                    color='white'
-                    marginLeft={25}
-                    onClick={ onOpen }
-                >
-                    <MdCreateNewFolder/>
-                    <Text marginLeft={1}>
-                        New playlist
-                    </Text>
-                </Flex>
+                {
+                    cookie.token &&
+                    <Flex 
+                        alignItems='center'
+                        cursor='pointer' 
+                        color='white'
+                        marginLeft={25}
+                        onClick={ onOpen }
+                    >
+                        <MdCreateNewFolder/>
+                        <Text marginLeft={1}>
+                            New playlist
+                        </Text>
+                    </Flex>
+                }
                 
                 <Flex 
                     cursor='pointer' 

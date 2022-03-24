@@ -23,6 +23,10 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
     const [cookies] = useCookies();
 
     const createPlaylist = () => {
+        if (name === '') {
+            return;
+        }
+
         const data: { 
             name: string,
             isPublic: boolean 
@@ -33,6 +37,8 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
                 'Authorization': cookies.token
             }
         })
+
+        onClose();
     }
    
     return (
@@ -45,6 +51,7 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
                 <ModalBody> 
                     <FormControl
                         mb={5}
+                        isRequired
                     >
                         <FormLabel htmlFor="playlist-name">Name</FormLabel>
                         <Input 

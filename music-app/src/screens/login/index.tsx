@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import Button from "../../components/Button";
 import Link from "../../components/Link";
@@ -17,10 +18,16 @@ const Login = (): JSX.Element => {
 
     useAuth(code);
 
+    useEffect(() => {
+        console.log(process.env.NODE_ENV);
+    })
+
     return (
         <div style={ style }>
             <Fade direction="up">
-                <Link href='https://server-hulmers.herokuapp.com/auth'>
+                <Link 
+                    href={ process.env.NODE_ENV === 'development' ? 'http://localhost:3001/auth' : 'https://server-hulmers.herokuapp.com/auth'}
+                >
                     <Button>
                         Log in with Spotify
                     </Button>

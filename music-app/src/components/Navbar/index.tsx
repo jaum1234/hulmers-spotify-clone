@@ -7,9 +7,7 @@ import Modal from "../Modal";
 
 const Navbar = (): JSX.Element => {
 
-    const [isMobile] = useMediaQuery('(max-width: 800px)');
     const { isOpen, onOpen, onClose } = useDisclosure()
-
 
     return(
         <Box  bg='#F55246' color='#fff' as='nav' >
@@ -42,12 +40,8 @@ const Navbar = (): JSX.Element => {
                             Hulmers
                         </Text>
                     </Flex>
-                    {
-                        isMobile ? 
-                        <MobileNav onOpen={ onOpen }/>
-                        :
-                        <Nav onOpen={ onOpen }/>
-                    }
+                    <MobileNav onOpen={ onOpen }/>
+                    <Nav onOpen={ onOpen }/>
                 </Flex>
             </Container>
         </Box>

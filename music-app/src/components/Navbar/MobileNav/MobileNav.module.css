@@ -1,0 +1,10 @@
+@media screen and (min-width: 800px) {
+    .mobileNav {
+        display: none;
+    }
+}
+
+.ham {
+    background-color: #fff;
+    color: #F55246;
+}
