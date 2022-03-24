@@ -1,5 +1,5 @@
 .button {
-    background-color: #CC180B;
+    background-color: #F55246;
     border: none;
     color: white;
     padding: 0.8rem;
@@ -36,7 +36,7 @@
   
     background-color: #fff;
     border: none;
-    color: #CC180B;
+    color: #F55246;
     padding: 0.5rem 0;
     cursor: pointer;
     transition: 0.2s ease-in-out;
