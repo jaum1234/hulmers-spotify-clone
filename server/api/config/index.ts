@@ -18,5 +18,5 @@ export const spotify: any = new SpotifyWebApi({
     redirectUri: credencials.redirectUri
 });
 
-export const server_port: number = 3001;
+export const server_port: string | number = process.env.PORT || 3001;
 
