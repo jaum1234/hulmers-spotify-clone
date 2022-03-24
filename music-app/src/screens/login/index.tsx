@@ -20,7 +20,7 @@ const Login = (): JSX.Element => {
     return (
         <div style={ style }>
             <Fade direction="up">
-                <Link href='http://localhost:3001/auth'>
+                <Link href='https://server-hulmers.herokuapp.com/auth'>
                     <Button>
                         Log in with Spotify
                     </Button>
