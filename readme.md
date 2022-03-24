@@ -1,5 +1,6 @@
 ﻿# Music App - Spotify Clone with NextJS ans Typescript
-Music app done with Spotify API. It allows the user to listen to his favorite albums and playlists, search for specific tracks and create his own playlists. 
+Music app done with Spotify API. It allows the user to listen to his favorite albums and playlists, search for specific tracks and create his own playlists.
+
 **A Spotify account is needed.**
 
 <img src='https://i.gyazo.com/c16d764fa7f05dce0e7fffc2d67c6280.png' width='600px'/>
@@ -25,6 +26,7 @@ In general, it was a great project to learn more about some core concepts of rea
 
 ## Running on localhost
 **A Spotify account is needed.**
+
 ### Client
 ```
     cd music-app
