@@ -32,9 +32,6 @@ export const useAuth = (code: string | string[] | undefined) => {
         }
 
         token();
-       
-
-        router.push('/');
 
         return () => abortController.abort();
        
