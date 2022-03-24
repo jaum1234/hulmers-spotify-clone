@@ -1,7 +1,4 @@
-import axios from "axios";
-import moment from "moment";
 import { NextRequest, NextResponse } from "next/server";
-import { api } from "../src/api";
 
 export const middleware = async (request: NextRequest) => {
     const response: NextResponse = NextResponse.next();
@@ -17,6 +14,3 @@ export const middleware = async (request: NextRequest) => {
     return response;
 }
 
-export const tokenExpired = (tokenExpirationDate: string): boolean => {
-    return moment().isSameOrAfter(JSON.parse(tokenExpirationDate));
-}
