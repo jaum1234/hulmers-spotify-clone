@@ -1,4 +1,4 @@
-import { Box, Flex, Image, SimpleGrid, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import Highlights from "../../components/Highlights";
 import SpotifyCard from "../../components/SpotifyCard";

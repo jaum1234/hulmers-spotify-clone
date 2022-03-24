@@ -14,18 +14,6 @@ export const middleware = async (request: NextRequest) => {
         return NextResponse.redirect('http://localhost:3000/login');
     }
 
-    // if (tokenExpired(request.cookies.expires_in)) {
-
-    //     await axios.post('http://localhost:3001/auth/refresh-token', {
-    //         refreshToken: request.cookies.refresh_token
-    //     })
-    //     .then(({ data }) => {
-    //         response.cookie('token', data.access_token);
-    //         response.cookie('expires_in', moment().add(data.expires_in, 'seconds'));
-    //     });
-
-    // }
-
     return response;
 }
 

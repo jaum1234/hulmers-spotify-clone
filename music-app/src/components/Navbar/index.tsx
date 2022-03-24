@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Text, useDisclosure, useMediaQuery} from "@chakra-ui/react";
 
-import { GiMusicSpell, GiHamburger } from 'react-icons/gi';
+import { GiMusicSpell } from 'react-icons/gi';
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import Modal from "../Modal";

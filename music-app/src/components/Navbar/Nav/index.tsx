@@ -1,4 +1,4 @@
-import { Box, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import Button from "../../Button";
@@ -6,7 +6,6 @@ import Link from "../../Link";
 import { navbar } from "../../../fixtures/navbar";
 import { NavItem } from "../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
-import Modal from "../../Modal";
 import { MouseEventHandler } from "react";
 
 const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {

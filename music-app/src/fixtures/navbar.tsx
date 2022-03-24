@@ -1,7 +1,5 @@
 import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai"
 import { RiAccountCircleLine } from "react-icons/ri"
-import { MdCreateNewFolder } from 'react-icons/md'
-
 
 export const navbar = {
     items: [

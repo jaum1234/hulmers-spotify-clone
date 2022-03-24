@@ -1,8 +1,6 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 import Collection from '../../components/Collection';
-import TracksList from '../../components/TracksList';
 import { useFetch } from '../../hooks/useFetch';
 
 const Playlist = () => {

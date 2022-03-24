@@ -1,14 +1,12 @@
-import { Box, Flex, Image, List, ListItem, SimpleGrid, Td, Text, Tr } from "@chakra-ui/react";
-import moment from "moment";
+import { Box, Flex, Image, List, ListItem, SimpleGrid, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
-import { Cookies, useCookies } from "react-cookie";
+import { useContext, useState } from "react";
+import { useCookies } from "react-cookie";
 import { api } from "../../../api";
 import { PlayBackContext } from "../../../contexts/PlayBackContext";
 import { useFetch } from "../../../hooks/useFetch";
 import { Track } from "../../../types/tracks";
 import { getDurationInMinutes, getDurationInSeconds } from "../../../utils/track-duration";
-import Button from "../../Button";
 
 
 const Track = ({ track, index, artist }: { track: Track, index: number, artist: string }): JSX.Element => {

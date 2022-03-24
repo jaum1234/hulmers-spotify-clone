@@ -11,13 +11,10 @@ import {
     ModalHeader, 
     ModalOverlay, 
     Switch, 
-    Text, 
-    useDisclosure 
 } from "@chakra-ui/react";
-import { MouseEventHandler, useEffect, useState } from "react";
-import { Cookies, useCookies } from "react-cookie";
+import { useState } from "react";
+import { useCookies } from "react-cookie";
 import { api } from "../../api";
-import InputFile from "../InputFile";
 
 const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): JSX.Element => {
 
@@ -36,11 +33,8 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
                 'Authorization': cookies.token
             }
         })
-        .then((res: any) => {
-            console.log("🚀 ~ file: index.tsx ~ line 40 ~ .then ~ res", res)
-        }, (err: any) => {
-            console.log("🚀 ~ file: index.tsx ~ line 42 ~ .then ~ err", err.response.data)
-            console.log(err.response.status);
+        .then(() => {
+            router
         });
     }
    

@@ -1,9 +1,7 @@
-import { Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Collection from "../../components/Collection";
 import { useFetch } from "../../hooks/useFetch";
-import { AlbumInfo } from "../../types/album";
 
 const Album = (): JSX.Element | null => {
 

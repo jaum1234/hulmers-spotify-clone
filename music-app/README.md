@@ -1,1 +1,0 @@
-colors: #F3281A (light red), #CC180B (dark red)

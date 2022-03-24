@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { PlayBackContext } from "../../contexts/PlayBackContext";
-import { useFetch } from "../../hooks/useFetch";
 import { SpotifyCard } from "../../types/spotify-card";
 
 /**

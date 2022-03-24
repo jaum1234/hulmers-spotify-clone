@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { tokenExpired } from "../../hooks/useFetch";
 import { SongPlayer } from "../../types/song-player";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 
