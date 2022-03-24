@@ -15,8 +15,8 @@ export const useAuth = (code: string | string[] | undefined) => {
 
         const abortController = new AbortController();
 
-        const token = () => {
-            api.post('/auth/token', {
+        const token = async () => {
+            await api.post('/auth/token', {
                 code
             })
             .then((res: any) => {
@@ -24,7 +24,6 @@ export const useAuth = (code: string | string[] | undefined) => {
                 setCookies('refresh_token', res.data.token.refreshToken)
                 setCookies('expires_in', moment().add(res.data.token.expiresIn, 'seconds'));
                 setCookies('token', res.data.token.accessToken);
-                router.push('/');
             })
             .catch(() => {
                 router.push('/login');
@@ -32,6 +31,8 @@ export const useAuth = (code: string | string[] | undefined) => {
         }
 
         token();
+
+        router.push('/');
 
         return () => abortController.abort();
        
