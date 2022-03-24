@@ -9,11 +9,11 @@ exports.credencials = {
     clientId: '410a9a2a41524717a430f0b76436429b',
     clientSecret: '8fe6357ee68942888bab5762645a453f',
     responseType: 'code',
-    redirectUri: 'http://localhost:3000/login'
+    redirectUri: 'https://hulmers-spotify-clone.vercel.app/login'
 };
 exports.spotify = new spotify_web_api_node_1.default({
     clientId: exports.credencials.clientId,
     clientSecret: exports.credencials.clientSecret,
     redirectUri: exports.credencials.redirectUri
 });
-exports.server_port = 3001;
+exports.server_port = process.env.PORT || 3001;
