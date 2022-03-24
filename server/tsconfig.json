@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "./build",
+        "esModuleInterop": true,
+        "strict": true,
+        "noEmitOnError": true,
+        "noImplicitAny": true
+    },
+    "include": [
+        "api/index.ts"
+    ]
+}

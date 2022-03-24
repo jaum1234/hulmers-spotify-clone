@@ -1,0 +1,24 @@
+.navList {
+    display: flex;
+
+}
+
+@media screen and (max-width: 700px) {
+    .navList {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+    }
+
+    .navListActive {
+        composes: navList;
+        opacity: 1;
+        top: 100%;
+        z-index: 1;
+    }
+}
+
+
+

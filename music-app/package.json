@@ -1,0 +1,38 @@
+{
+  "name": "music-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@types/spotify-web-api-node": "^5.0.7",
+    "axios": "^0.26.0",
+    "filepond": "^4.30.3",
+    "framer-motion": "^6",
+    "moment": "^2.29.1",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-awesome-reveal": "^3.8.1",
+    "react-cookie": "^4.1.1",
+    "react-dom": "17.0.2",
+    "react-filepond": "^7.1.1",
+    "react-icons": "^4.3.1",
+    "react-spotify-web-playback": "^0.9.1",
+    "spotify-web-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.21",
+    "@types/react": "17.0.39",
+    "@types/styled-components": "^5.1.24",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "4.6.2"
+  }
+}

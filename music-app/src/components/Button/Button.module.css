@@ -1,0 +1,70 @@
+.button {
+    background-color: #CC180B;
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.button:hover {
+    background-color: #F3281A;
+}
+
+.hamButton {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #CC180B;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    right: 10px;
+}
+
+.hamButton:hover {
+    color: #F3281A;
+}
+
+@media screen and (min-width: 700px){
+    .hamButton {
+        display: none;
+    }
+}
+
+.menuButton {
+    display: block;
+  
+    background-color: #fff;
+    border: none;
+    color: #CC180B;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100px;
+
+}
+@media screen and (max-width:800px) {
+    .menuButton {
+        width: 100%
+    }
+}
+
+.menuButtonDark {
+    composes: menuButton;
+    color: #fff;
+    background-color: #CC180B;
+}
+
+
+@media screen and (max-width: 700px) {
+    .menuButton {
+        width: 100%;
+    }
+}
+
+.menuButton:hover {
+    background-color: #000;
+    color: #fff;
+}
