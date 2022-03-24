@@ -33,9 +33,6 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
                 'Authorization': cookies.token
             }
         })
-        .then(() => {
-            router
-        });
     }
    
     return (

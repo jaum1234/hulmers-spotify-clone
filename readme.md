@@ -6,13 +6,16 @@ Music app done with Spotify API. It allows the user to listen to his favorite al
 <img src='https://i.gyazo.com/7672e9c2614761bd9d2615583ae2f1ce.png' width='600px'/>
 <img src='https://i.gyazo.com/a291a895de030e16e7938806d6682592.png' width='600px'/>
 
-## Technologies used:
+## Some technologies used:
 - React
 - NextJS
 - Typescript
 - Express
 - Spotify Web API
 - Chakra UI
+
+## Some thoughts on it
+In general, it was a great project to learn more about some core concepts of react, like componets lifecycle, hooks, events handling and use of context.
 ## Some Issues
 - I did some refactoring recently, but didn't refactored my types, so they are kind messy right now.
 - Refresh token isn't really working yet
