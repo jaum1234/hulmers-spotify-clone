@@ -59,29 +59,28 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                 >
                     {
                         cookie.token ? 
-                            
-                            <Button
-                                buttonStyle="menuButton"
-                                onClick={() => {
+                        <Button
+                            buttonStyle="menuButton"
+                            onClick={() => {
 
-                                    removeCookies('token');
-                                    removeCookies('expires_in');
-                                    removeCookies('refresh_token');
+                                removeCookies('token');
+                                removeCookies('expires_in');
+                                removeCookies('refresh_token');
 
-                                    router.push('/login')
-                                }}
-                            >
-                                Log out
-                            </Button>
-                            :
-                            <Button 
-                                buttonStyle="menuButton"
-                                onClick={() => {
-                                    router.push('/login')
-                                }}
-                            >
-                                Log in
-                            </Button>
+                                router.push('/login')
+                            }}
+                        >
+                            Log out
+                        </Button>
+                        :
+                        <Button 
+                            buttonStyle="menuButton"
+                            onClick={() => {
+                                router.push('/login')
+                            }}
+                        >
+                            Log in
+                        </Button>
                     }   
                 </Flex>
             </Flex>
