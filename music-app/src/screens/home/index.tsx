@@ -11,6 +11,7 @@ import Highlights from '../../components/Highlights';
 import { Album } from '../../types/album';
 import { Track } from '../../types/tracks';
 import { useEffect } from 'react';
+import styles from './Home.module.css';
 
 const Home = (): JSX.Element => {
       
@@ -39,14 +40,7 @@ const Home = (): JSX.Element => {
             fontWeight='bold'
             transition='0.5s ease-in-out'
             marginBottom={5}
-            sx={{
-              "@media screen and (max-width: 575px)": {
-                fontSize: '45px'
-              },
-              "@media screen and (max-width: 440px)": {
-                fontSize: '30px'
-              }
-            }}
+            className={ styles.title }
           >
               Listen to your <br></br> favorite songs 
           </Text>

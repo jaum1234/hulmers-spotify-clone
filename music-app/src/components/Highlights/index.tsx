@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import styles from './Highlights.module.css';
 
 const Highlights = ({ title, children }: { title: string, children: React.ReactNode }) => {
     return (
@@ -6,26 +7,14 @@ const Highlights = ({ title, children }: { title: string, children: React.ReactN
         paddingY={15}>
         <Text 
             fontSize="25px" 
-            fontWeight="bold" 
+            fontWeight="bold"
             marginBottom={10}
-            sx={{
-                "@media screen and (max-width: 1024px)" : {
-                    textAlign: "center"
-                }
-            }}
         >
             { title }
         </Text>
         <Flex
             flexWrap="wrap"
-            sx={{
-                "@media screen and (max-width: 1024px)": {
-                    justifyContent: "space-around",
-                },
-                "@media screen and (max-width: 780px)": {
-                    justifyContent: "space-evenly",
-                },
-            }}
+            className={ styles.content }
         >
             { children }
         </Flex>

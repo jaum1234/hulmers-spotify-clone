@@ -20,12 +20,15 @@ const Navbar = (): JSX.Element => {
                 maxW='container.lg'  
                 paddingTop={2} 
                 paddingBottom={2}
-                display='flex'
-                justifyContent='space-between'
-                alignItems='center'
+                
                 position='relative'
                 zIndex={2}
             >
+                <Flex
+                    justifyContent='space-between'
+                    alignItems='center'
+                >
+
                     <Flex
                         alignItems='center'
                     >
@@ -45,6 +48,7 @@ const Navbar = (): JSX.Element => {
                         :
                         <Nav onOpen={ onOpen }/>
                     }
+                </Flex>
             </Container>
         </Box>
     )
