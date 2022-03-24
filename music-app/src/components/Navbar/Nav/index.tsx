@@ -40,7 +40,7 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                     <Flex 
                         alignItems='center'
                         cursor='pointer' 
-                        color='white'
+                        color='#fff'
                         marginLeft={25}
                         onClick={ onOpen }
                     >
