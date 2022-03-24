@@ -4,6 +4,12 @@
     }
 }
 
+.createPlaylist {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
 .navList {
     display: flex;
 

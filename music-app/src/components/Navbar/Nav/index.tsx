@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import Button from "../../Button";
 import Link from "../../Link";
 import { navbar } from "../../../fixtures/navbar";
@@ -42,6 +42,7 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                         cursor='pointer' 
                         color='#fff'
                         marginLeft={25}
+                        className={ styles.createPlaylist }
                         onClick={ onOpen }
                     >
                         <MdCreateNewFolder/>

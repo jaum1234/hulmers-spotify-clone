@@ -1,4 +1,4 @@
-import { Box, Flex, IconButton, List, ListItem, Menu, MenuButton, MenuItem, MenuList, Modal, Text, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import { GiHamburger } from "react-icons/gi";
 import Button from "../../Button";
 import { navbar } from "../../../fixtures/navbar";
@@ -8,7 +8,6 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { NavItem } from "../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
-import { Item } from "framer-motion/types/components/Reorder/Item";
 import styles from './MobileNav.module.css';
 
 const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
