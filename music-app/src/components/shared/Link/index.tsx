@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import React from 'react';
-import { Link } from '../../types/link';
+import { Link } from '../../../types/link';
 
 const styles = {
     color: "none",
