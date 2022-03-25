@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { SongPlayer } from "../../types/song-player";
+import { SongPlayer } from "../../../types/song-player";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 
 const SongPlayer = ({ trackUri }: SongPlayer) => {

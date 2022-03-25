@@ -1,7 +1,7 @@
 import { Box, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
-import Highlights from "../../components/Highlights";
-import SpotifyCard from "../../components/SpotifyCard";
+import Highlights from "../../components/shared/Highlights";
+import SpotifyCard from "../../components/shared/SpotifyCard";
 import { useFetch } from "../../hooks/useFetch";
 import { CardType } from "../../types/spotify-card";
 

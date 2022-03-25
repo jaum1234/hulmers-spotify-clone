@@ -1,7 +1,7 @@
 import Track from "./Track";
 import { Box, SimpleGrid, Table } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { TrackList } from '../../types/tracks';
+import { TrackList } from '../../../types/tracks';
 
 const TracksList = ({ tracks, artist }: { tracks: TrackList, artist: string}) => {
 

@@ -7,14 +7,15 @@ import '../styles/globals.css';
 import { Fade, Slide } from 'react-awesome-reveal';
 import { CookiesProvider, useCookies } from 'react-cookie';
 import {  useEffect, useState } from 'react';
+import SongPlayer from '../src/components/shared/SongPlayer';
 import { useRouter } from 'next/router';
-import SongPlayer from '../src/components/SongPlayer';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [playingTrack, setPlayingTrack] = useState<string | string[]>();
   const [cookies, setCookies] = useCookies();
+  const router = useRouter();
   
   useEffect(() => {
     if (!cookies.last_song_played) {
@@ -61,5 +62,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+
 
 export default MyApp

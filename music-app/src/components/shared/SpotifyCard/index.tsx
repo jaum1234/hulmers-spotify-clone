@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { AiFillPlayCircle } from 'react-icons/ai';
-import { PlayBackContext } from "../../contexts/PlayBackContext";
-import { SpotifyCard } from "../../types/spotify-card";
+import { PlayBackContext } from "../../../contexts/PlayBackContext";
+import { SpotifyCard } from "../../../types/spotify-card";
 
 /**
  *  Generally, SpotifyCards are used to display albums or playlists. Therefore,

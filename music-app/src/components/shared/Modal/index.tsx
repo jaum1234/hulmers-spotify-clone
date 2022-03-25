@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
-import { api } from "../../api";
+import { api } from "../../../api";
 
 const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): JSX.Element => {
 

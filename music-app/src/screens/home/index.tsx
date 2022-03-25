@@ -1,13 +1,13 @@
 import { Button, Flex, Text } from '@chakra-ui/react';
 
-import SpotifyCard from '../../components/SpotifyCard';
+import SpotifyCard from '../../components/shared/SpotifyCard';
 
 import { Fade } from 'react-awesome-reveal';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Link from '../../components/Link';
+import Link from '../../components/shared/Link';
 import { useFetch } from '../../hooks/useFetch';
 import { CardType } from '../../types/spotify-card';
-import Highlights from '../../components/Highlights';
+import Highlights from '../../components/shared/Highlights';
 import { Album } from '../../types/album';
 import { Track } from '../../types/tracks';
 import { useEffect } from 'react';
@@ -19,6 +19,7 @@ const Home = (): JSX.Element => {
   const { data: albums } = useFetch('/albums');
 
   useEffect(() => {
+    console.log(2);
     console.log("🚀 ~ file: index.tsx ~ line 23 ~ recommendations", recommendations)
   }, [recommendations])
     

@@ -14,7 +14,6 @@ export const useFetch = (endpoint: string) => {
     useEffect(() => {
         
         if (!router.isReady) return;
-        if (!cookies.token) return;
 
         const abortController = new AbortController()
         api.get(endpoint, {
@@ -25,12 +24,10 @@ export const useFetch = (endpoint: string) => {
         .then(res => {
             setData(res.data);
         }, (err: any) => {
-
             setError(err.response.data);
             
             if (err.response.status === 401) {
                 router.push('/login');
-                return;
             }
             
         })

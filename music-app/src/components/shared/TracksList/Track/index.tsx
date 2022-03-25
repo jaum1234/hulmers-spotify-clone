@@ -2,11 +2,11 @@ import { Box, Flex, Image, List, ListItem, SimpleGrid, Text } from "@chakra-ui/r
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { useCookies } from "react-cookie";
-import { api } from "../../../api";
-import { PlayBackContext } from "../../../contexts/PlayBackContext";
-import { useFetch } from "../../../hooks/useFetch";
-import { Track } from "../../../types/tracks";
-import { getDurationInMinutes, getDurationInSeconds } from "../../../utils/track-duration";
+import { api } from "../../../../api";
+import { PlayBackContext } from "../../../../contexts/PlayBackContext";
+import { useFetch } from "../../../../hooks/useFetch";
+import { Track } from "../../../../types/tracks";
+import { getDurationInMinutes, getDurationInSeconds } from "../../../../utils/track-duration";
 
 
 const Track = ({ track, index, artist }: { track: Track, index: number, artist: string }): JSX.Element => {

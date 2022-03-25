@@ -3,7 +3,7 @@ import { Box, Container, Flex, Text, useDisclosure, useMediaQuery} from "@chakra
 import { GiMusicSpell } from 'react-icons/gi';
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
-import Modal from "../Modal";
+import Modal from "../shared/Modal";
 
 const Navbar = (): JSX.Element => {
 

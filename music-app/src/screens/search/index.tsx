@@ -2,7 +2,7 @@ import { Box, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import TracksList from "../../components/TracksList";
+import TracksList from "../../components/shared/TracksList";
 import { useFetch } from "../../hooks/useFetch";
 
 const Search = (): JSX.Element => {

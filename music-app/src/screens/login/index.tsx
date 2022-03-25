@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import Button from "../../components/Button";
-import Link from "../../components/Link";
+import { useCookies } from 'react-cookie';
+import Button from "../../components/shared/Button";
+import Link from "../../components/shared/Link";
 import { useAuth } from '../../hooks/useAuth';
 
 const style = {
@@ -11,22 +12,32 @@ const style = {
     marginTop: 200
 }
 
-const Login = (): JSX.Element => {
+const Login = ({ data }: { data: any }): JSX.Element => {
 
     const router = useRouter();
-    const { code } = router.query;
-
-    useAuth(code);
+    const [cookie, setCookie] = useCookies();
 
     useEffect(() => {
-        console.log(process.env.NODE_ENV);
-    })
+        if (data) {
+            setCookie('token', data.token.accessToken);
+            setCookie('refresh_token', data.token.refreshToken);
+            setCookie('expires_in', data.token.expiresIn);
+            setCookie('user', data.user);
+
+            router.push('/');
+        }
+    }, [data, setCookie, router]);
 
     return (
         <div style={ style }>
             <Fade direction="up">
                 <Link 
-                    href={ process.env.NODE_ENV === 'development' ? 'http://localhost:3001/auth' : 'https://server-hulmers.herokuapp.com/auth'}
+                    href={ 
+                        process.env.NODE_ENV === 'development' ? 
+                        'http://localhost:3001/auth' 
+                        : 
+                        'https://server-hulmers.herokuapp.com/auth'
+                    }
                 >
                     <Button>
                         Log in with Spotify
@@ -36,5 +47,7 @@ const Login = (): JSX.Element => {
         </div>
     )
 }
+
+
 
 export default Login;
