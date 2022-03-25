@@ -4,21 +4,10 @@ import Profile from "../src/screens/profile";
 
 export default Profile;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
-    const cookies = context.req.cookies;
-
-    var currentUser = await fetchData('/users/me', {
-        headers: {
-            Authorization: cookies.token
-        }
-    });
-
-    var userPlaylists = await fetchData(`/users/${currentUser?.id}/playlists`, {
-        headers: {
-            Authorization: cookies.token
-        }
-    });
+    var currentUser = await fetchData('/users/me', req.cookies.token);
+    var userPlaylists = await fetchData(`/users/${currentUser?.id}/playlists`, req.cookies.token);
 
     if (currentUser.statusCode === 401 || userPlaylists.statusCode === 401) {
         return {
