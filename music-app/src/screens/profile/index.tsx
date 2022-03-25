@@ -5,10 +5,10 @@ import SpotifyCard from "../../components/shared/SpotifyCard";
 import { useFetch } from "../../hooks/useFetch";
 import { CardType } from "../../types/spotify-card";
 
-const Profile = (): JSX.Element => {
+const Profile = ({ currentUser, userPlaylists }: any): JSX.Element => {
 
-    const { data: currentUser } = useFetch('/users/me');
-    const { data: userPlaylists } = useFetch(`/users/${currentUser?.id}/playlists`);
+    //const { data: currentUser } = useFetch('/users/me');
+    //const { data: userPlaylists } = useFetch(`/users/${currentUser?.id}/playlists`);
 
     useEffect(() => {
         console.log("🚀 ~ file: index.tsx ~ line 12 ~ currentUser", currentUser)        

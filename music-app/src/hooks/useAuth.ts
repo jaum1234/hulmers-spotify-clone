@@ -1,10 +1,17 @@
-import moment from "moment";
 import { useRouter } from "next/router"
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { api } from "../api";
 
-export const useAuth = (authData: any) => {
+type AuthData = {
+    token: {
+        accessToken: string,
+        refreshToken: string,
+        expiresIn: string
+    },
+    user: string
+}
+
+export const useAuth = (authData: AuthData) => {
 
     const router = useRouter();
     const [cookies, setCookie] = useCookies();
@@ -19,5 +26,6 @@ export const useAuth = (authData: any) => {
             router.push('/');
         }
     }, [authData, setCookie, router]);
+
 
 }

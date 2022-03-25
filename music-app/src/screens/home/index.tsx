@@ -13,13 +13,12 @@ import { Track } from '../../types/tracks';
 import { useEffect } from 'react';
 import styles from './Home.module.css';
 
-const Home = (): JSX.Element => {
+const Home = ({ recommendations, albums }: any): JSX.Element => {
       
-  const { data: recommendations } = useFetch('/tracks/recommendations');
-  const { data: albums } = useFetch('/albums');
+  //const { data: recommendations } = useFetch('/tracks/recommendations');
+  //const { data: albums } = useFetch('/albums');
 
   useEffect(() => {
-    console.log(2);
     console.log("🚀 ~ file: index.tsx ~ line 23 ~ recommendations", recommendations)
   }, [recommendations])
     

@@ -26,7 +26,6 @@ const Album = (): JSX.Element | null => {
         return null
     }
 
-
     return(
         <>
             <Collection

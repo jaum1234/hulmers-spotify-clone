@@ -25,9 +25,6 @@ type LoginProps = {
 
 const Login = ({ data }: LoginProps): JSX.Element => {
 
-    const router = useRouter();
-    const [cookie, setCookie] = useCookies();
-
     useAuth(data);
 
     return (
