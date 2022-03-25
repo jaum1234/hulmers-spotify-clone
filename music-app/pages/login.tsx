@@ -12,8 +12,13 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
             props: {}
         }
     }
+
+    const baseUrl = process.env.NODE_ENV === 'development' ? 
+        'http://localhost:3001' 
+        : 
+        'https://server-hulmers.herokuapp.com';
     
-    const data = await fetch('http://localhost:3001/auth/token', {
+    const data = await fetch(`${baseUrl}/auth/token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
