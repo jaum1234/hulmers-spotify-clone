@@ -12,7 +12,18 @@ const style = {
     marginTop: 200
 }
 
-const Login = ({ data }: { data: any }): JSX.Element => {
+type LoginProps = {
+    data: {
+        user: string,
+        token: {
+            accessToken: string,
+            refreshToken: string,
+            expiresIn: string
+        }
+    }
+}
+
+const Login = ({ data }: LoginProps): JSX.Element => {
 
     const router = useRouter();
     const [cookie, setCookie] = useCookies();
