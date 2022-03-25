@@ -28,16 +28,7 @@ const Login = ({ data }: LoginProps): JSX.Element => {
     const router = useRouter();
     const [cookie, setCookie] = useCookies();
 
-    useEffect(() => {
-        if (data) {
-            setCookie('token', data.token.accessToken);
-            setCookie('refresh_token', data.token.refreshToken);
-            setCookie('expires_in', data.token.expiresIn);
-            setCookie('user', data.user);
-
-            router.push('/');
-        }
-    }, [data, setCookie, router]);
+    useAuth(data);
 
     return (
         <div style={ style }>

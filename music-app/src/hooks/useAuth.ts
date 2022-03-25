@@ -4,40 +4,20 @@ import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { api } from "../api";
 
-export const useAuth = (code: string | string[] | undefined) => {
+export const useAuth = (authData: any) => {
 
     const router = useRouter();
-    const [cookies, setCookies] = useCookies();
+    const [cookies, setCookie] = useCookies();
 
     useEffect(() => {
-        if (!router.isReady) return;
-        if (!code) return
+        if (authData) {
+            setCookie('token', authData.token.accessToken);
+            setCookie('refresh_token', authData.token.refreshToken);
+            setCookie('expires_in', authData.token.expiresIn);
+            setCookie('user', authData.user);
 
-        const abortController = new AbortController();
-
-        const token = () => {
-            api.post('/auth/token', {
-                code
-            })
-            .then((res: any) => {
-                setCookies('user', res.data.user);
-                setCookies('refresh_token', res.data.token.refreshToken)
-                setCookies('expires_in', moment().add(res.data.token.expiresIn, 'seconds'));
-                setCookies('token', res.data.token.accessToken);
-
-                router.push('/');
-
-            })
-            .catch(() => {
-                router.push('/login');
-            });
+            router.push('/');
         }
-
-        token();
-        router.push('/');
-
-        return () => abortController.abort();
-       
-    }, [code, router, setCookies, cookies.token]);
+    }, [authData, setCookie, router]);
 
 }
