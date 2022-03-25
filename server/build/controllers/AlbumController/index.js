@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = require("../../config");
-const utils_1 = require("../../utils");
 exports.default = {
     getAlbums: (request, response, next) => {
         const token = String(request.get('Authorization'));
@@ -49,7 +48,6 @@ exports.default = {
                     duration: track.duration_ms
                 }))
             };
-            utils_1.logger.info(res);
             response.json(albumInfo);
         })
             .catch((err) => {

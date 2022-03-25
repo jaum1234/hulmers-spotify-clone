@@ -12,7 +12,7 @@ export default {
 
     getToken: (request: Request, response: Response, next: NextFunction) => {
         const { code }: { code: string } = request.body;
-    
+
         spotify.authorizationCodeGrant(code)
             .then((data: {
                 body: {

@@ -70,7 +70,6 @@ export default {
                         }
                     ))
                 }
-                logger.info(res);
                 response.json(albumInfo);
             })
             .catch((err: any) => {
