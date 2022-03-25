@@ -1,5 +1,6 @@
 ﻿# Music App - Spotify Clone with NextJS ans Typescript
-Music app done with Spotify API. It allows the user to listen to his favorite albums and playlists, search for specific tracks and create his own playlists.
+ ## [Live site](https://hulmers-spotify-clone.vercel.app/) 
+Music app done with Spotify WEB API. It allows the user to listen to his favorite albums and playlists, search for specific tracks and create his own playlists.
 
 **A Spotify account is needed.**
 
