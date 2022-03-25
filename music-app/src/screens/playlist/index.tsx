@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
-import Collection from '../../components/Collection';
+import Collection from '../../components/shared/Collection';
 import { useFetch } from '../../hooks/useFetch';
 
 const Playlist = () => {
