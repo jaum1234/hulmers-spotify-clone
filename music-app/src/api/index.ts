@@ -14,15 +14,15 @@ export const tokenExpired = (expirationDate: string): boolean => {
     return moment().isSameOrAfter(expirationDate);
 }
 
-/**
- * For client-side
+/*
+    For client-side
  */
 export const api = axios.create({
     baseURL: baseUrl
 })
 
-/**
- * For server-side
+/*
+    For server-side
  */
 type Headers =  {
     [x: string]: string

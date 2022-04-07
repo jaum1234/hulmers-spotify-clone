@@ -1,10 +1,9 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
-import Button from "../../shared/Button";
-import Link from "../../shared/Link";
-import { navbar } from "../../../fixtures/navbar";
-import { NavItem } from "../../../types/navbar";
+import { Button, Link } from '../../../shared';
+import { navbar } from "../../../../fixtures/navbar";
+import { NavItem } from "../../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
 import { MouseEventHandler } from "react";
 import styles from './Nav.module.css';

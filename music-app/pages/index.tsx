@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import { getCookie, setCookies } from 'cookies-next';
 import { fetchData } from "../src/api";
 import Home from "../src/screens/home";
 

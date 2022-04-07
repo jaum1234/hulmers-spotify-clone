@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { api } from "../api";
 
-export const useFetch = (endpoint: string) => {
+const useFetch = (endpoint: string) => {
     const router = useRouter();
-    const [cookies, setCookies, removeCookies] = useCookies<string>();
+    const [cookies] = useCookies<string>();
     const [data, setData] = useState<any[] | any>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState();
@@ -43,16 +43,4 @@ export const tokenExpired = (tokenExpirationDate: string): boolean => {
     return moment().isSame(tokenExpirationDate) || moment().isAfter(tokenExpirationDate)
 }
 
-const refreshToken = async (
-    refreshToken: string, 
-    setCookies: (name: string, value: any) => void, 
-) => {
-    await api.post('/auth/refresh-token', {
-        refreshToken
-    })
-    .then(({ data }) => {
-        console.log("Estourado");
-        setCookies('token', data.access_token);
-        setCookies('expires_in', moment().add(data.expires_in, 'seconds'));
-    });
-}
+export default useFetch;

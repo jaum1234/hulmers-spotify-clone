@@ -1,7 +1,7 @@
 import { createContext } from "react";
-
-type PlayBackContextTypes = {
-    chooseTrack: (track: string[] | string) => void
+interface PlayBackContextTypes {
+    playingTrack: string | string[] | undefined;
+    chooseTrack: (track: string[] | string) => void;
 }
 
 export const PlayBackContext = createContext<PlayBackContextTypes | null>(null);

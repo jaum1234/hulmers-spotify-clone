@@ -1,12 +1,11 @@
 import { Box, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import { GiHamburger } from "react-icons/gi";
-import Button from "../../shared/Button";
-import { navbar } from "../../../fixtures/navbar";
+import { Button, Link } from '../../../shared';
+import { navbar } from "../../../../fixtures/navbar";
 import { MouseEventHandler, useState } from "react";
-import Link from "../../shared/Link";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
-import { NavItem } from "../../../types/navbar";
+import { NavItem } from "../../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
 import styles from './MobileNav.module.css';
 

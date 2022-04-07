@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { useCookies } from "react-cookie";
 import { api } from "../../../../api";
 import { PlayBackContext } from "../../../../contexts/PlayBackContext";
-import { useFetch } from "../../../../hooks/useFetch";
+import { useFetch } from "../../../../hooks";
 import { Track } from "../../../../types/tracks";
 import { getDurationInMinutes, getDurationInSeconds } from "../../../../utils/track-duration";
 
