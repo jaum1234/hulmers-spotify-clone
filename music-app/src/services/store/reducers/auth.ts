@@ -1,4 +1,5 @@
 import moment from "moment"
+import Cookie from 'js-cookie';
 
 const INITAL_STATE: AuthState = {
     token: {

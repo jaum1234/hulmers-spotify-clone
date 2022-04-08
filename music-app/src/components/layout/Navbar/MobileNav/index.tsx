@@ -10,6 +10,7 @@ import styles from './MobileNav.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../../services/store/actions/auth";
 import { AuthState } from "../../../../services/store/reducers/auth";
+import Cookies from "js-cookie";
 
 const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
 
@@ -88,6 +89,9 @@ const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
                             <Button
                                 buttonStyle="menuButtonDark"
                                 onClick={() => {
+                                    Cookies.remove('token');
+                                    Cookies.remove('refresh_token');
+                                    Cookies.remove('expires_in');
                                     dispatch(logout());
                                     router.push('/login')
                                 }}

@@ -1,28 +1,26 @@
 import { GetServerSideProps } from "next";
-import localStorage from "redux-persist/es/storage";
 import { fetchData } from "../src/api";
 import Home from "../src/screens/home";
 
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+        const recommendations = await fetchData('/tracks/recommendations', req.cookies.token);
+        const albums = await fetchData('/albums', req.cookies.token);
     
-    const recommendations = await fetchData('/tracks/recommendations', req.cookies.token);
-    const albums = await fetchData('/albums', req.cookies.token);
-   
-    if (recommendations.statusCode === 401 || albums.statusCode === 401) {
+        if (recommendations.statusCode === 401 || albums.statusCode === 401) {
+            return {
+                redirect: {
+                    destination: '/login',
+                    permanent: false    
+                }
+            }
+        }
+        
         return {
-            redirect: {
-                destination: '/login',
-                permanent: false    
+            props: {
+                recommendations,
+                albums
             }
         }
     }
-    
-    return {
-        props: {
-            recommendations,
-            albums
-        }
-    }
-}

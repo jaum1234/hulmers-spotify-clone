@@ -8,6 +8,7 @@ import { MouseEventHandler } from "react";
 import styles from './Nav.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../../services/store/actions/auth";
+import Cookies from "js-cookie";
 
 const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
 
@@ -63,6 +64,9 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                         <Button
                             buttonStyle="menuButton"
                             onClick={() => {
+                                Cookies.remove('token');
+                                Cookies.remove('refresh_token');
+                                Cookies.remove('expires_in');
                                 dispatch(logout());
                                 router.push('/login')
                             }}
