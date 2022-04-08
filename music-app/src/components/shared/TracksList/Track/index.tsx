@@ -1,12 +1,12 @@
 import { Box, Flex, Image, List, ListItem, SimpleGrid, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
-import { useCookies } from "react-cookie";
 import { api } from "../../../../api";
 import { PlayBackContext } from "../../../../contexts/PlayBackContext";
 import { useFetch } from "../../../../hooks";
 import { Track } from "../../../../types/tracks";
 import { getDurationInMinutes, getDurationInSeconds } from "../../../../services/utils/track-duration";
+import { useSelector } from "react-redux";
 
 
 const Track = ({ track, index, artist }: { track: Track, index: number, artist: string }): JSX.Element => {
@@ -14,13 +14,14 @@ const Track = ({ track, index, artist }: { track: Track, index: number, artist: 
     const router = useRouter();
     const playBackContext = useContext(PlayBackContext);
     const [dropDown, setDropDown] = useState<boolean>(false);
-    const [cookie] = useCookies();
+    const user = useSelector((state: any) => state.auth.user);
+    const token = useSelector((state: any) => state.auth.token.accessToken);
 
     const { 
         data: userPlaylists 
     }: { 
         data: Array<{id: string, name: string}> 
-    } = useFetch(`/users/${cookie.user}/playlists`);
+    } = useFetch(`/users/${user}/playlists`);
     
 
     const trackBelongsToUserPlaylist = () => {
@@ -117,7 +118,7 @@ const Track = ({ track, index, artist }: { track: Track, index: number, artist: 
                         if (trackBelongsToUserPlaylist()) {
                             api.delete(`/playlists/${router.query.id}/tracks/${track.uri}`, {
                                 headers: {
-                                    Authorization: cookie.token
+                                    Authorization: token
                                 }
                             });
 
@@ -162,7 +163,7 @@ const Track = ({ track, index, artist }: { track: Track, index: number, artist: 
                                                     {},
                                                     {
                                                         headers: {
-                                                            Authorization: cookie.token
+                                                            Authorization: token
                                                         }
                                                     }  );
                                             }}

@@ -1,21 +1,26 @@
+import Cookies from "js-cookie";
 import moment from "moment";
 import { useEffect } from "react";
-import { useCookies } from "react-cookie";
+import { useDispatch, useSelector } from "react-redux";
 import { api, tokenExpired } from "../api";
+import { login } from "../services/store/actions/auth";
 
 const useRefreshToken = () => {
 
-    const [cookies, setCookie] = useCookies();
+    const { expiresIn, refreshToken } = useSelector((state: any) => state.auth.token);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (tokenExpired(cookies.expires_in) && cookies.refresh_token) {
+        if (tokenExpired(expiresIn) && refreshToken) {
             const refresh = async () => {
                 await api.post('/auth/refresh-token', {
-                    refresh_token: cookies.refresh_token
+                    refresh_token: refreshToken
                 })
                 .then(({ data }: any) => {
-                    setCookie('token', data.access_token);
-                    setCookie('expires_in', moment().add(data.expires_in ,'seconds'));                    
+                    Cookies.set('token', data.access_token);
+                    Cookies.set('expires_in', moment().add(data.expires_in ,'seconds'));  
+                    
+                    dispatch(refreshToken({accessToken: data.access_token, expiresIn: data.expires_in}))
                 })
             }
             refresh();

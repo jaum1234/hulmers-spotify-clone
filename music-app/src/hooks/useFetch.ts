@@ -1,12 +1,12 @@
 import moment from "moment";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useSelector } from "react-redux";
 import { api } from "../api";
 
 const useFetch = (endpoint: string) => {
     const router = useRouter();
-    const [cookies] = useCookies<string>();
+    const { accessToken } = useSelector((state: any) => state.auth.token);
     const [data, setData] = useState<any[] | any>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState();
@@ -18,7 +18,7 @@ const useFetch = (endpoint: string) => {
         const abortController = new AbortController()
         api.get(endpoint, {
             headers: {
-                Authorization: cookies.token
+                Authorization: accessToken
             }
         })
         .then(res => {
@@ -34,7 +34,7 @@ const useFetch = (endpoint: string) => {
 
         setLoading(false);
         return () => abortController.abort();
-    }, [cookies.token, endpoint, router, cookies.expires_in])
+    }, [endpoint, accessToken, router])
 
     return { data, error, loading };
 }

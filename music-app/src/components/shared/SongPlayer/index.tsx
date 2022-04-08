@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import React, { useContext, useEffect, useState } from "react";
 import { SongPlayer } from "../../../types/song-player";
 import SpotifyWebPlayer from "react-spotify-web-playback/lib";
 import { Box } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { saveVolume } from "../../../services/store/actions/songPlayer";
+import { PlayBackContext } from "../../../contexts/PlayBackContext";
 
-const SongPlayer = ({ trackUri }: SongPlayer) => {
+const SongPlayer = React.memo(function SongPlayer() {
 
     const [play, setPlay] = useState<boolean>(false);
-    const [cookies, setCookies] = useCookies<string>();
-
+    const playBackContext = useContext(PlayBackContext)
+    const dispatch = useDispatch();
+    const token = useSelector((state: any) => state.auth.token.accessToken);
+    const volume = useSelector((state: any) => state.songPlayer.volume);
     
     useEffect(() => {
         setPlay(true)
-    }, [trackUri])
+    }, [playBackContext?.playingTrack])
 
-    if (!cookies.token) return null;
+    if (!token) return null;
 
     return(
         <Box
@@ -23,22 +27,22 @@ const SongPlayer = ({ trackUri }: SongPlayer) => {
             width='100%'
         >
             <SpotifyWebPlayer
-                token={ cookies.token }
+                token={ token }
                 showSaveIcon
                 callback={state => {
                     if (!state.isPlaying) {
                         setPlay(false);
                     }
-                    setCookies('init_vol', state.volume);
+                    dispatch(saveVolume(state.volume));
                 }}
-                initialVolume={ cookies.init_vol ? parseFloat(cookies.init_vol) : 1 }
+                initialVolume={ volume ? parseFloat(volume) : 1 }
                 autoPlay={true}
                 play={play}
-                uris={ trackUri ? trackUri : [] }
+                uris={ playBackContext?.playingTrack ? playBackContext?.playingTrack : [] }
                 
             />
         </Box>
     )
-}
+})
 
 export default SongPlayer;

@@ -1,12 +1,10 @@
 import { Container } from '@chakra-ui/react';
-import { useContext } from 'react';
 import { Navbar } from '../components/layout';
-import { SongPlayer } from '../components/shared';
-import { PlayBackContext } from '../contexts/PlayBackContext';
+import { useRefreshToken } from '../hooks';
 
 const Layout = ({ children }: { children: React.ReactNode}): JSX.Element => {
 
-    const { playingTrack } = useContext(PlayBackContext);
+    useRefreshToken();
 
     return (
         <>
@@ -17,9 +15,6 @@ const Layout = ({ children }: { children: React.ReactNode}): JSX.Element => {
             >
                 { children }
             </Container>
-            <SongPlayer 
-                trackUri={ playingTrack }
-            />
         </>
     )
 }

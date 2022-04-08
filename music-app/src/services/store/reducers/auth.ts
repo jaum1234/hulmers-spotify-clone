@@ -39,7 +39,7 @@ const auth = (state = INITAL_STATE, action: Action) => {
     switch (action.type) {
         case 'LOG_IN': 
             return {
-                token: { ...action.token, expiresIn: moment().add(action.token.expiresIn, 'seconds') },
+                token: { ...state.token, ...action.token, expiresIn: moment().add(action.token.expiresIn, 'seconds') },
                 user: action.user
             }
 
