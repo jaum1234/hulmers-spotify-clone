@@ -64,6 +64,8 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                         <Button
                             buttonStyle="menuButton"
                             onClick={() => {
+
+                                //these are meant for the server-side
                                 Cookies.remove('token');
                                 Cookies.remove('refresh_token');
                                 Cookies.remove('expires_in');

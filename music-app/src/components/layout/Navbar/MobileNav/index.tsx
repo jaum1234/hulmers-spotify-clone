@@ -89,9 +89,12 @@ const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
                             <Button
                                 buttonStyle="menuButtonDark"
                                 onClick={() => {
+
+                                    //these are meant for the server-side
                                     Cookies.remove('token');
                                     Cookies.remove('refresh_token');
                                     Cookies.remove('expires_in');
+
                                     dispatch(logout());
                                     router.push('/login')
                                 }}

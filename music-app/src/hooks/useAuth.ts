@@ -26,6 +26,7 @@ export const useAuth = (authData: AuthData) => {
 
         const { token, user } = authData;
         
+        //these are meant for the server-side
         Cookies.set('token', token.accessToken);
         Cookies.set('refresh_token', token.accessToken);
         Cookies.set('expires_in', token.accessToken);
