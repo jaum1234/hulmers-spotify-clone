@@ -21,6 +21,7 @@
     "framer-motion": "^6",
     "moment": "^2.29.1",
     "next": "12.1.0",
+    "next-redux-wrapper": "^7.0.5",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-awesome-reveal": "^3.8.1",

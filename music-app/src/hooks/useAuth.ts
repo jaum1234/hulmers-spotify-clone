@@ -2,6 +2,8 @@ import moment from "moment";
 import { useRouter } from "next/router"
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useDispatch } from 'react-redux';
+import { login } from "../services/store/actions/auth";
 
 type AuthData = {
     token: {
@@ -15,18 +17,17 @@ type AuthData = {
 export const useAuth = (authData: AuthData) => {
 
     const router = useRouter();
-    const [cookies, setCookie] = useCookies();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (authData) {
-            setCookie('token', authData.token.accessToken);
-            setCookie('refresh_token', authData.token.refreshToken);
-            setCookie('expires_in', moment().add(authData.token.expiresIn, 'seconds'));
-            setCookie('user', authData.user);
+        if (!authData) return;
 
-            router.push('/');
-        }
-    }, [authData, setCookie, router]);
+        const { token, user } = authData;
+        dispatch(login(token, user));
+        router.push('/login');
+        
+    }, [authData, router, dispatch]);
+
 }
 
 export default useAuth;

@@ -4,4 +4,7 @@ interface PlayBackContextTypes {
     chooseTrack: (track: string[] | string) => void;
 }
 
-export const PlayBackContext = createContext<PlayBackContextTypes | null>(null);
+export const PlayBackContext = createContext<PlayBackContextTypes | null>({
+    playingTrack: "",
+    chooseTrack: () => ""
+});

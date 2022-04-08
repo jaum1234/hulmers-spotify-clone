@@ -7,7 +7,7 @@
 .createPlaylist {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #fff !important;
 }
 
 .navList {

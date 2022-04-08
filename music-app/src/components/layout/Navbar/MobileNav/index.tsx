@@ -3,15 +3,19 @@ import { GiHamburger } from "react-icons/gi";
 import { Button, Link } from '../../../shared';
 import { navbar } from "../../../../fixtures/navbar";
 import { MouseEventHandler, useState } from "react";
-import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { NavItem } from "../../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
 import styles from './MobileNav.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../../services/store/actions/auth";
+import { AuthState } from "../../../../services/store/reducers/auth";
 
 const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
 
-    const [cookie, setCookies, removeCookies] = useCookies();
+    const token = useSelector((state: any) => state.auth.token.accessToken);
+    const dispatch = useDispatch();
+
     const router = useRouter();
     const [dropdown, setDropdown] = useState<boolean>(false);
 
@@ -61,7 +65,7 @@ const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
                         ))
                     }
                     {
-                        cookie.token &&
+                        token &&
                         <ListItem>
                             <Flex 
                                 alignItems='center'
@@ -80,15 +84,11 @@ const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
                         onClick={() => setDropdown(false)}
                     >
                     {
-                        cookie.token ?
+                        token ?
                             <Button
                                 buttonStyle="menuButtonDark"
                                 onClick={() => {
-
-                                    removeCookies('token');
-                                    removeCookies('expires_in');
-                                    removeCookies('refresh_token');
-
+                                    dispatch(logout());
                                     router.push('/login')
                                 }}
                             >
@@ -147,7 +147,7 @@ const MobileNav = ({ onOpen }: { onOpen: MouseEventHandler }): JSX.Element => {
         //         </MenuItem>
         //         <MenuItem>
         //         {
-        //             cookie.token ?
+        //             token ?
         //                 <Button
         //                     buttonStyle="menuButtonDark"
         //                     onClick={() => {

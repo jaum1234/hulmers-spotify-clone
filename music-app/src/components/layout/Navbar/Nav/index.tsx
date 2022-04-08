@@ -1,16 +1,18 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useCookies } from "react-cookie";
 import { Button, Link } from '../../../shared';
 import { navbar } from "../../../../fixtures/navbar";
 import { NavItem } from "../../../../types/navbar";
 import { MdCreateNewFolder } from "react-icons/md";
 import { MouseEventHandler } from "react";
 import styles from './Nav.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../../services/store/actions/auth";
 
 const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
 
-    const [cookie, setCookies, removeCookies] = useCookies();
+    const token = useSelector((state: any) => state.auth.token.accessToken);
+    const dispatch = useDispatch();
     const router = useRouter();
 
     return(
@@ -35,7 +37,7 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                     </Link>
                 )) }
                 {
-                    cookie.token &&
+                    token &&
                     <Flex 
                         alignItems='center'
                         cursor='pointer' 
@@ -57,15 +59,11 @@ const Nav = ({ onOpen }: { onOpen?: MouseEventHandler }): JSX.Element => {
                     marginLeft={25}
                 >
                     {
-                        cookie.token ? 
+                        token ? 
                         <Button
                             buttonStyle="menuButton"
                             onClick={() => {
-
-                                removeCookies('token');
-                                removeCookies('expires_in');
-                                removeCookies('refresh_token');
-
+                                dispatch(logout());
                                 router.push('/login')
                             }}
                         >

@@ -10,10 +10,6 @@ const Playlist = () => {
 
   const { data: playlist } = useFetch(`/playlists/${router.query.id}`);
 
-  useEffect(() => {
-    console.log("🚀 ~ file: index.tsx ~ line 13 ~ Playlist ~ playlist", playlist?.tracks)    
-  });
-
   return (
     <Layout>
       <Collection

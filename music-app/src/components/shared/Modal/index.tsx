@@ -13,14 +13,14 @@ import {
     Switch, 
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useCookies } from "react-cookie";
+import { useSelector } from "react-redux";
 import { api } from "../../../api";
 
 const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): JSX.Element => {
 
     const [name, setName] = useState<string>("");
     const [isPublic, setIsPublic] = useState<boolean>(false);
-    const [cookies] = useCookies();
+    const token = useSelector((state: any) => state.auth.token.accessToken);
 
     const createPlaylist = () => {
         if (name === '') {
@@ -34,7 +34,7 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }): J
 
         api.post('/users/playlists', data, {
             headers: {
-                'Authorization': cookies.token
+                'Authorization': token
             }
         })
 

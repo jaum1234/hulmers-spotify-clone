@@ -6,7 +6,7 @@ import { api } from "../../../../api";
 import { PlayBackContext } from "../../../../contexts/PlayBackContext";
 import { useFetch } from "../../../../hooks";
 import { Track } from "../../../../types/tracks";
-import { getDurationInMinutes, getDurationInSeconds } from "../../../../utils/track-duration";
+import { getDurationInMinutes, getDurationInSeconds } from "../../../../services/utils/track-duration";
 
 
 const Track = ({ track, index, artist }: { track: Track, index: number, artist: string }): JSX.Element => {

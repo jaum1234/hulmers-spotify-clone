@@ -1,16 +1,8 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { useCookies } from 'react-cookie';
 import Button from "../../components/shared/Button";
 import Link from "../../components/shared/Link";
 import { useAuth } from '../../hooks/useAuth';
-
-const style = {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: 200
-}
+import style from './Login.module.css';
 
 type LoginProps = {
     data: {
@@ -28,7 +20,7 @@ const Login = ({ data }: LoginProps): JSX.Element => {
     useAuth(data);
 
     return (
-        <div style={ style }>
+        <div className={ style.container }>
             <Fade direction="up">
                 <Link 
                     href={ 
