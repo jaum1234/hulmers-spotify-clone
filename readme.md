@@ -16,6 +16,7 @@ Music app done with Spotify WEB API. It allows the user to listen to his favorit
 - Express
 - Spotify Web API
 - Chakra UI
+- NodeJS
 
 ## Some thoughts on it
 In general, it was a great project to learn more about some core concepts of react, like componets lifecycle, hooks, events handling and use of context.
