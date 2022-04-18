@@ -19,6 +19,7 @@ Music app done with Spotify WEB API. It allows the user to listen to his favorit
 - NodeJS
 
 ## Features
+- Sign in with spotify
 - Search for a specific track
 - Listen to a album
 - Listem to a playlist
